@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 开启全局二级缓存 -->
+		<setting name="cacheEnabled" value="true" />
+	</settings>
+	<!--添加分页配置-->
+<plugins>
+    <!-- com.github.pagehelper为PageHelper类所在包名 -->
+    <plugin interceptor="com.github.pagehelper.PageInterceptor">
+        <!-- 使用下面的方式配置参数，后面会有所有的参数介绍 -->
+        <property name="param1" value="value1"/>
+	</plugin>
+</plugins>
+	<!-- 加载sql映射文件 -->
+	<mappers>
+		<mapper resource="qs/classhelper/mapper/TbClassroomMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbClassMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbTeacherMapper.xml" />
+		 <mapper resource="qs/classhelper/mapper/TbTeacharinfoMapper.xml"/> 
+		<mapper resource="qs/classhelper/mapper/TbClassnodeMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbCoursetableMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbDateMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbCourseMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbSuggestionMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbClassroomtypeMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbTeacherLessonsMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbExceltableMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbDutyMenuMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbMenuMapper.xml"/> 
+		<mapper resource="qs/classhelper/mapper/TbDutiesinfoMapper.xml"/>
+		<mapper resource="qs/classhelper/mapper/TbInfoMapper.xml" />
+	</mappers>
+</configuration>

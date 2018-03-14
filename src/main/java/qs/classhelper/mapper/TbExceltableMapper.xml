@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="qs.classhelper.dao.TbExceltableMapper" >
+  <resultMap id="BaseResultMap" type="qs.classhelper.entity.TbExceltable" >
+    <id column="exceltable_id" property="exceltableId" jdbcType="INTEGER" />
+    <result column="exceltable_name" property="exceltableName" jdbcType="VARCHAR" />
+    <result column="exceltable_filepath" property="exceltableFilepath" jdbcType="VARCHAR" />
+    <result column="exceltable_type" property="exceltableType" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="qs.classhelper.entity.TbExceltable" extends="BaseResultMap" >
+    <result column="exceltable_file" property="exceltableFile" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_exceltable
+    where exceltable_id = #{exceltableId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="qs.classhelper.entity.TbExceltable" >
+    insert into tb_exceltable (exceltable_id, exceltable_name, exceltable_filepath, 
+      exceltable_type, exceltable_file)
+    values (#{exceltableId,jdbcType=INTEGER}, #{exceltableName,jdbcType=VARCHAR}, #{exceltableFilepath,jdbcType=VARCHAR}, 
+      #{exceltableType,jdbcType=VARCHAR}, #{exceltableFile,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="qs.classhelper.entity.TbExceltable" >
+    insert into tb_exceltable
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="exceltableId != null" >
+        exceltable_id,
+      </if>
+      <if test="exceltableName != null" >
+        exceltable_name,
+      </if>
+      <if test="exceltableFilepath != null" >
+        exceltable_filepath,
+      </if>
+      <if test="exceltableType != null" >
+        exceltable_type,
+      </if>
+      <if test="exceltableFile != null" >
+        exceltable_file,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="exceltableId != null" >
+        #{exceltableId,jdbcType=INTEGER},
+      </if>
+      <if test="exceltableName != null" >
+        #{exceltableName,jdbcType=VARCHAR},
+      </if>
+      <if test="exceltableFilepath != null" >
+        #{exceltableFilepath,jdbcType=VARCHAR},
+      </if>
+      <if test="exceltableType != null" >
+        #{exceltableType,jdbcType=VARCHAR},
+      </if>
+      <if test="exceltableFile != null" >
+        #{exceltableFile,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+</mapper>
